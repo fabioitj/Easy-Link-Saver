@@ -2,29 +2,38 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="App.Views.AddLink"
-             xmlns:control="clr-namespace:Xamarin.Forms.MaskedEntry;assembly=Xamarin.Forms.MaskedEntry">
+             xmlns:local="clr-namespace:App.Class;assembly=App">
     <ContentPage.Content>
-        <StackLayout Margin="10, 20, 10, 0">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="2*"/>
-                </Grid.RowDefinitions>
-
-                <Grid Grid.Row="0">
-
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+  
+            <StackLayout Margin="10, 20, 10, 0" Grid.Row="0">
+                <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="3*"/>
-                        <RowDefinition Height="3*"/>
+                        <RowDefinition Height="2*"/>
+                        <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
 
-                    <Entry Text="{Binding Title}" Grid.Row="0" Placeholder="Title" PlaceholderColor="#d10000"/>
-                    <Entry Text="{Binding Description}" Grid.Row="1" Keyboard="Url" Placeholder="Url" PlaceholderColor="#d10000"/>
-                    <Button Grid.Row="2" Text="Save" TextColor="White" Clicked="CreateNewLink" CornerRadius="10" BackgroundColor="#d10000"/>
+                    <Grid Grid.Row="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="3*"/>
+                            <RowDefinition Height="3*"/>
+                        </Grid.RowDefinitions>
+
+                        <Entry Text="{Binding Title}" Grid.Row="0" Placeholder="Title" PlaceholderColor="#d10000"/>
+                        <Entry Text="{Binding Description}" Grid.Row="1" Keyboard="Url" Placeholder="Url" PlaceholderColor="#d10000"/>
+                        <Button Grid.Row="2" Text="Save" TextColor="White" Clicked="CreateNewLink" CornerRadius="10" BackgroundColor="#d10000"/>
+                    </Grid>
                 </Grid>
-                
-            </Grid>
-        </StackLayout>
+            </StackLayout>
+            <StackLayout Grid.Row="1">
+                <local:AdBanner Size="Standardbanner" VerticalOptions="EndAndExpand"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

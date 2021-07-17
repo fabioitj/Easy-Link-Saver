@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:App"
+             xmlns:local="clr-namespace:App.Class;assembly=App" 
              x:Class="App.Views.Inicio">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Adicionar"
@@ -40,7 +40,7 @@
                                                     <ColumnDefinition Width="Auto"/>
                                                 </Grid.ColumnDefinitions>
                                                 <Label Grid.Column="0" Text="{Binding Title}" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Start"/>
-                                                
+
                                             </Grid>
                                             <Grid Grid.Row="1">
                                                 <Label Text="{Binding Description}" TextColor="White" FontSize="Subtitle" FontAttributes="Italic" VerticalTextAlignment="Start"/>
@@ -57,10 +57,9 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackLayout>
-
-        <local:AdMobView Grid.Row="1"
-                         x:Name="adMobView"
-                         VerticalOptions="EndAndExpand"/>
-
+        <StackLayout Grid.Row="1">
+            <!--<Label Text="Banner Advertisement" HorizontalOptions="CenterAndExpand" TextColor="Green" FontSize="25" />-->
+            <local:AdBanner Size="Standardbanner" VerticalOptions="EndAndExpand"/>
+        </StackLayout>
     </Grid>
 </ContentPage>

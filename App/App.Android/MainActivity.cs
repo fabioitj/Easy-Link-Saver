@@ -1,12 +1,8 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
 using Android.OS;
-using Android.Gms.Ads;
-using Android.Views;
-using Android.Widget;
+using Android.Runtime;
 
 namespace App.Droid
 {
@@ -16,8 +12,6 @@ namespace App.Droid
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
-            MobileAds.Initialize(ApplicationContext);
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);

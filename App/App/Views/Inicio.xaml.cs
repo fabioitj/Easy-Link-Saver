@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -17,11 +15,6 @@ namespace App.Views
         {
             InitializeComponent();
             Title = "Links";
-
-            BindingContext = this;
-
-            if (Device.RuntimePlatform == Device.Android)
-                adMobView.AdUnitId = "ca-app-pub-3940256099942544/6300978111";
         }
 
         protected override async void OnAppearing()

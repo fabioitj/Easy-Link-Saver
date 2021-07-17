@@ -153,6 +153,7 @@ namespace App.Droid
 			global::Xamarin.Essentials.Resource.Id.text2 = global::App.Droid.Resource.Id.text2;
 			global::Xamarin.Essentials.Resource.Id.time = global::App.Droid.Resource.Id.time;
 			global::Xamarin.Essentials.Resource.Id.title = global::App.Droid.Resource.Id.title;
+			global::Xamarin.Essentials.Resource.Id.view_tree_lifecycle_owner = global::App.Droid.Resource.Id.view_tree_lifecycle_owner;
 			global::Xamarin.Essentials.Resource.Integer.status_bar_notification_info_maxnum = global::App.Droid.Resource.Integer.status_bar_notification_info_maxnum;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_page = global::App.Droid.Resource.Layout.browser_actions_context_menu_page;
 			global::Xamarin.Essentials.Resource.Layout.browser_actions_context_menu_row = global::App.Droid.Resource.Layout.browser_actions_context_menu_row;
@@ -9673,7 +9674,19 @@ namespace App.Droid
 			public const int abc_config_actionMenuItemAllCaps = 2130968578;
 			
 			// aapt resource value: 0x7F040003
-			public const int mtrl_btn_textappearance_all_caps = 2130968579;
+			public const int enable_system_alarm_service_default = 2130968579;
+			
+			// aapt resource value: 0x7F040004
+			public const int enable_system_foreground_service_default = 2130968580;
+			
+			// aapt resource value: 0x7F040005
+			public const int enable_system_job_service_default = 2130968581;
+			
+			// aapt resource value: 0x7F040006
+			public const int mtrl_btn_textappearance_all_caps = 2130968582;
+			
+			// aapt resource value: 0x7F040007
+			public const int workmanager_test_configuration = 2130968583;
 			
 			static Boolean()
 			{
@@ -12749,25 +12762,28 @@ namespace App.Droid
 			public const int view_offset_helper = 2131231029;
 			
 			// aapt resource value: 0x7F080136
-			public const int view_tree_saved_state_registry_owner = 2131231030;
+			public const int view_tree_lifecycle_owner = 2131231030;
 			
 			// aapt resource value: 0x7F080137
-			public const int visible = 2131231031;
+			public const int view_tree_saved_state_registry_owner = 2131231031;
 			
 			// aapt resource value: 0x7F080138
-			public const int visible_removing_fragment_view_tag = 2131231032;
-			
-			// aapt resource value: 0x7F08013A
-			public const int withinBounds = 2131231034;
+			public const int visible = 2131231032;
 			
 			// aapt resource value: 0x7F080139
-			public const int withText = 2131231033;
+			public const int visible_removing_fragment_view_tag = 2131231033;
 			
 			// aapt resource value: 0x7F08013B
-			public const int wrap_content = 2131231035;
+			public const int withinBounds = 2131231035;
+			
+			// aapt resource value: 0x7F08013A
+			public const int withText = 2131231034;
 			
 			// aapt resource value: 0x7F08013C
-			public const int zero_corner_chip = 2131231036;
+			public const int wrap_content = 2131231036;
+			
+			// aapt resource value: 0x7F08013D
+			public const int zero_corner_chip = 2131231037;
 			
 			static Id()
 			{
@@ -13559,46 +13575,70 @@ namespace App.Droid
 			public const int mtrl_picker_toggle_to_year_selection = 2131624018;
 			
 			// aapt resource value: 0x7F0E0053
-			public const int overflow_tab_title = 2131624019;
+			public const int offline_notification_text = 2131624019;
 			
 			// aapt resource value: 0x7F0E0054
-			public const int password_toggle_content_description = 2131624020;
+			public const int offline_notification_title = 2131624020;
 			
 			// aapt resource value: 0x7F0E0055
-			public const int path_password_eye = 2131624021;
+			public const int offline_opt_in_confirm = 2131624021;
 			
 			// aapt resource value: 0x7F0E0056
-			public const int path_password_eye_mask_strike_through = 2131624022;
+			public const int offline_opt_in_confirmation = 2131624022;
 			
 			// aapt resource value: 0x7F0E0057
-			public const int path_password_eye_mask_visible = 2131624023;
+			public const int offline_opt_in_decline = 2131624023;
 			
 			// aapt resource value: 0x7F0E0058
-			public const int path_password_strike_through = 2131624024;
+			public const int offline_opt_in_message = 2131624024;
 			
 			// aapt resource value: 0x7F0E0059
-			public const int s1 = 2131624025;
+			public const int offline_opt_in_title = 2131624025;
 			
 			// aapt resource value: 0x7F0E005A
-			public const int s2 = 2131624026;
+			public const int overflow_tab_title = 2131624026;
 			
 			// aapt resource value: 0x7F0E005B
-			public const int s3 = 2131624027;
+			public const int password_toggle_content_description = 2131624027;
 			
 			// aapt resource value: 0x7F0E005C
-			public const int s4 = 2131624028;
+			public const int path_password_eye = 2131624028;
 			
 			// aapt resource value: 0x7F0E005D
-			public const int s5 = 2131624029;
+			public const int path_password_eye_mask_strike_through = 2131624029;
 			
 			// aapt resource value: 0x7F0E005E
-			public const int s6 = 2131624030;
+			public const int path_password_eye_mask_visible = 2131624030;
 			
 			// aapt resource value: 0x7F0E005F
-			public const int search_menu_title = 2131624031;
+			public const int path_password_strike_through = 2131624031;
 			
 			// aapt resource value: 0x7F0E0060
-			public const int status_bar_notification_info_overflow = 2131624032;
+			public const int s1 = 2131624032;
+			
+			// aapt resource value: 0x7F0E0061
+			public const int s2 = 2131624033;
+			
+			// aapt resource value: 0x7F0E0062
+			public const int s3 = 2131624034;
+			
+			// aapt resource value: 0x7F0E0063
+			public const int s4 = 2131624035;
+			
+			// aapt resource value: 0x7F0E0064
+			public const int s5 = 2131624036;
+			
+			// aapt resource value: 0x7F0E0065
+			public const int s6 = 2131624037;
+			
+			// aapt resource value: 0x7F0E0066
+			public const int s7 = 2131624038;
+			
+			// aapt resource value: 0x7F0E0067
+			public const int search_menu_title = 2131624039;
+			
+			// aapt resource value: 0x7F0E0068
+			public const int status_bar_notification_info_overflow = 2131624040;
 			
 			static String()
 			{
