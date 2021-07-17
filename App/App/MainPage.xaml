@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App.MainPage">
+    <MasterDetailPage.Master>
+        <ContentPage Title="Main Page">
+            
+            <Grid BackgroundColor="Red" RowSpacing="0" >
+                <StackLayout Spacing="0">
+                    <ListView x:Name="paginaMestreList" RowHeight="65" SeparatorVisibility="None" 
+                                BackgroundColor="#d10000"
+                                ItemTapped="OnItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <StackLayout>
+                                        <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" 
+                                                    Padding="20,10,10,5" Spacing="5">
+                                            <Image Source="{Binding Icon}" WidthRequest="39" HeightRequest="39" 
+                                                        VerticalOptions="Center" />
+                                            <Label Text="{Binding Title}" FontSize="Medium" VerticalOptions="Center" 
+                                                        TextColor="White" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <BoxView HeightRequest="0"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout> 
+            </Grid>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+
+        <NavigationPage>
+
+        </NavigationPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
