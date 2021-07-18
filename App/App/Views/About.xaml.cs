@@ -15,7 +15,7 @@ namespace App.Views
         public About()
         {
             InitializeComponent();
-            Title = "Sobre";
+            Title = "About";
         }
     }
 }

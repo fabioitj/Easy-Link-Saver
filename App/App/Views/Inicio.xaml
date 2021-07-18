@@ -58,7 +58,6 @@
             </ListView>
         </StackLayout>
         <StackLayout Grid.Row="1">
-            <!--<Label Text="Banner Advertisement" HorizontalOptions="CenterAndExpand" TextColor="Green" FontSize="25" />-->
             <local:AdBanner Size="Standardbanner" VerticalOptions="EndAndExpand"/>
         </StackLayout>
     </Grid>

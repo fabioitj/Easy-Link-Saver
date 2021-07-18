@@ -18,6 +18,7 @@
                                     <StackLayout>
                                         <StackLayout VerticalOptions="FillAndExpand" Orientation="Horizontal" 
                                                     Padding="20,10,10,5" Spacing="5">
+                                            <Image Source="{Binding Icon}"/>
                                             <Label Text="{Binding Title}" FontSize="Title" VerticalOptions="Center" VerticalTextAlignment="Center" HorizontalTextAlignment="Start"
                                                         TextColor="White" FontAttributes="Bold" Margin=" 10, 10, 0, 10"/>
                                         </StackLayout>

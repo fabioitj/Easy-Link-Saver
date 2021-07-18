@@ -35,8 +35,8 @@ namespace App
 
             menuList = new List<MasterPageItem>();
 
-            menuList.Add(new MasterPageItem() { Title = "Links", Icon = "ic_error.png", TargetType = typeof(Views.Inicio) });
-            menuList.Add(new MasterPageItem() { Title = "Sobre", Icon = "ic_error.png", TargetType = typeof(Views.About) });
+            menuList.Add(new MasterPageItem() { Title = "Links", Icon = "ic_globe.png", TargetType = typeof(Views.Inicio) });
+            menuList.Add(new MasterPageItem() { Title = "About", Icon = "ic_info_outline.png", TargetType = typeof(Views.About) });
 
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Views.Inicio)));
 
