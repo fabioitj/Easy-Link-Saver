@@ -11,19 +11,33 @@ namespace App.Views
     public partial class Inicio : ContentPage
     {
         public List<Models.LinksModel> linkList { get; set; }
+        public bool Selected { get; set; }
         public Inicio()
         {
             InitializeComponent();
             Title = "Links";
+            searchBar.TextChanged += OnTextChanged;
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
+            GetLinksByFilter("");
+        }
+
+        void OnTextChanged(object sender, EventArgs e)
+        {
+            GetLinksByFilter(searchBar.Text);
+        }
+
+        protected async void GetLinksByFilter(string filter)
+        {
             var listaItens = await App.Database.GetLinksAsync();
 
-            listaItens = listaItens.OrderByDescending(x => x.ID).ToList();
-
+            if (!string.IsNullOrEmpty(filter))
+            {
+                listaItens = listaItens.OrderByDescending(x => x.ID).Where(x => x.Title.ToLower().Contains(filter.ToLower())).ToList();
+            }
             pageLinksList.ItemsSource = listaItens;
         }
 
@@ -34,18 +48,29 @@ namespace App.Views
         private async void TapJoinLink(object sender, ItemTappedEventArgs e)
         {
             var link = ((Models.LinksModel)e.Item).Description;
-
-            if (!(link.StartsWith("https://") || link.StartsWith("http://"))) {
-                link = "https://" + link;   
+            if (!(link.StartsWith("https://") || link.StartsWith("http://")))
+            {
+                link = "https://" + link;
             }
             await Browser.OpenAsync(link, BrowserLaunchMode.SystemPreferred);
         }
-        
-        private void SelectItem(object sender, ItemTappedEventArgs e)
+
+        async void OnActionSheetSimpleClicked(object sender, EventArgs e)
         {
+            var link = (Models.LinksModel)((ImageButton)sender).CommandParameter;
+
+            string action = await DisplayActionSheet("Options: ", "Cancel", null, "Edit", "Delete");
+
+            if(action == "Edit")
+            {
+                await Navigation.PushAsync(new AddLink(link));
+            }
+            else if (action == "Delete")
+            {
+                await App.Database.DeleteLinkAsync(link);
+                await DisplayAlert("Success", "Register deleted.", "Ok");
+            }
 
         }
-
-
     }
 }

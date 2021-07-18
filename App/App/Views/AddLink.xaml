@@ -25,8 +25,8 @@
                             <RowDefinition Height="3*"/>
                         </Grid.RowDefinitions>
 
-                        <Entry Text="{Binding Title}" Grid.Row="0" Placeholder="Title" PlaceholderColor="#d10000" />
-                        <Entry Text="{Binding Description}" Grid.Row="1" Keyboard="Url" Placeholder="Url" PlaceholderColor="#d10000"/>
+                        <Entry x:Name="entryTitle" Text="{Binding Title}" Grid.Row="0" Placeholder="Title..." TextColor="White" PlaceholderColor="#d10000" />
+                        <Entry x:Name="entryDescription" Text="{Binding Description}" Grid.Row="1" Keyboard="Url" TextColor="White" Placeholder="Url..." PlaceholderColor="#d10000"/>
                         <Button Grid.Row="2" Text="Save" TextColor="White" Clicked="CreateNewLink" CornerRadius="10" BackgroundColor="#d10000"/>
                     </Grid>
                 </Grid>

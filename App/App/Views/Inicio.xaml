@@ -5,7 +5,7 @@
              x:Class="App.Views.Inicio">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Adicionar"
-                 IconImageSource="ic_add_new_link.png"
+                 IconImageSource="ic_add_circle_outline.png"
                  Order="Primary"
                  Priority="0"
                  Clicked="AddNewLink" />
@@ -16,46 +16,63 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackLayout Grid.Row="0" BackgroundColor="#292929">
-            <ListView x:Name="pageLinksList"
-                              ItemTapped="TapJoinLink"
-                              HasUnevenRows="True" 
-                              SeparatorVisibility="None"
-                              Margin="0, 10, 0 ,10"
-                              SelectionMode="Single">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <ViewCell.View>
-                                <StackLayout Orientation="Vertical" Margin="10, 10, 10, 10" >
-                                    <Frame BackgroundColor="#c70000" CornerRadius="35" HasShadow="True" BorderColor="#660000">
-                                        <Grid>
-                                            <Grid.RowDefinitions>
-                                                <RowDefinition Height="1*"/>
-                                                <RowDefinition Height="0.6*"/>
-                                                <RowDefinition Height="0.6*"/>
-                                            </Grid.RowDefinitions>
-                                            <Grid Grid.Row="0">
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="*"/>
-                                                    <ColumnDefinition Width="Auto"/>
-                                                </Grid.ColumnDefinitions>
-                                                <Label Grid.Column="0" Text="{Binding Title}" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Start"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
+                <SearchBar Grid.Row="0" 
+                           x:Name="searchBar" 
+                           Placeholder="Search..." 
+                           TextColor="White" 
+                           PlaceholderColor="White" 
+                           CancelButtonColor="White" 
+                           Margin="0, 10, 0, 0"
+                           VerticalOptions="Center"/>
+
+                <ListView x:Name="pageLinksList"
+                          ItemTapped="TapJoinLink"
+                          HasUnevenRows="True" 
+                          SeparatorVisibility="None"
+                          Margin="0, 10, 0 ,10"
+                          SelectionMode="Single"
+                          Grid.Row="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.View>
+                                    <StackLayout Orientation="Vertical" Margin="10, 10, 10, 10" >
+                                        <Frame BackgroundColor="#c70000" CornerRadius="35" HasShadow="True" BorderColor="#660000">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="1*"/>
+                                                    <RowDefinition Height="0.6*"/>
+                                                    <RowDefinition Height="0.6*"/>
+                                                </Grid.RowDefinitions>
+                                                <Grid Grid.Row="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"/>
+                                                        <ColumnDefinition Width="Auto"/>
+                                                    </Grid.ColumnDefinitions>
+                                                    <Label Grid.Column="0" Text="{Binding Title}" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Start"/>
+                                                    <ImageButton x:Name="moreBtn" CommandParameter="{Binding .}" Clicked="OnActionSheetSimpleClicked" Grid.Column="1" Source="ic_more_vert.png" BackgroundColor="Transparent" HorizontalOptions="End"/>
+                                                </Grid>
+                                                <Grid Grid.Row="1">
+                                                    <Label Text="{Binding Description}" TextColor="White" FontSize="Subtitle" FontAttributes="Italic" VerticalTextAlignment="Start"/>
+                                                </Grid>
+                                                <Grid Grid.Row="2">
+                                                    <Label Text="{Binding DateRegister}" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
+                                                </Grid>
                                             </Grid>
-                                            <Grid Grid.Row="1">
-                                                <Label Text="{Binding Description}" TextColor="White" FontSize="Subtitle" FontAttributes="Italic" VerticalTextAlignment="Start"/>
-                                            </Grid>
-                                            <Grid Grid.Row="2">
-                                                <Label Text="{Binding DateRegister}" TextColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"/>
-                                            </Grid>
-                                        </Grid>
-                                    </Frame>
-                                </StackLayout>
-                            </ViewCell.View>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                                        </Frame>
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
         </StackLayout>
         <StackLayout Grid.Row="1">
             <local:AdBanner Size="Standardbanner" VerticalOptions="EndAndExpand"/>

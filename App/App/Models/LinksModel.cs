@@ -13,4 +13,9 @@ namespace App.Models
         public string Description { get; set; }
         public DateTime DateRegister { get; set; }
     }
+
+    public class CommandParameters
+    {
+        public LinksModel link { get; set; }
+    }
 }
