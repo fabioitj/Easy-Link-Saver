@@ -10,6 +10,8 @@ namespace App.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public DateTime DateRegister { get; set; }
+        public bool Favorite { get; set; } = false;
+        public string imageName { get; set; }
     }
 
     public class CommandParameters

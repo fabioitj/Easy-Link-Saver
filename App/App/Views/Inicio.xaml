@@ -57,7 +57,15 @@
                                                         <ColumnDefinition Width="Auto"/>
                                                     </Grid.ColumnDefinitions>
                                                     <Label Grid.Column="0" Text="{Binding Title}" TextColor="White" FontSize="Title" FontAttributes="Bold" VerticalTextAlignment="Start"/>
-                                                    <ImageButton x:Name="moreBtn" CommandParameter="{Binding .}" Clicked="OnActionSheetSimpleClicked" Grid.Column="1" Source="ic_more_vert.png" BackgroundColor="Transparent" HorizontalOptions="End"/>
+                                                    <Grid Grid.Column="1">
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="1*"/>
+                                                            <ColumnDefinition Width="*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <ImageButton Grid.Column="0" x:Name="favoriteBtn" CommandParameter="{Binding .}" BackgroundColor="Transparent" HorizontalOptions="Center" Source="{Binding imageName}" Clicked="FavoriteUnfavorite"/>
+                                                        <ImageButton Grid.Column="1" x:Name="moreBtn" CommandParameter="{Binding .}" Clicked="OnActionSheetSimpleClicked" Source="ic_more_vert.png" BackgroundColor="Transparent" HorizontalOptions="End"/>
+                                                    </Grid>
+                                                    
                                                 </Grid>
                                                 <Grid Grid.Row="1">
                                                     <Label Text="{Binding Description}" TextColor="White" FontSize="Subtitle" FontAttributes="Italic" VerticalTextAlignment="Start"/>

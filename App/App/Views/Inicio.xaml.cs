@@ -11,7 +11,6 @@ namespace App.Views
     public partial class Inicio : ContentPage
     {
         public List<Models.LinksModel> LinkList { get; set; }
-        public bool Selected { get; set; }
         public Inicio()
         {
             InitializeComponent();
@@ -46,10 +45,27 @@ namespace App.Views
         {
             var listaItens = await App.Database.GetLinksAsync();
 
+
+
             if (!string.IsNullOrEmpty(filter))
             {
-                listaItens = listaItens.OrderByDescending(x => x.ID).Where(x => x.Title.ToLower().Contains(filter.ToLower())).ToList();
+                listaItens = listaItens.Where(x => x.Title.ToLower().Contains(filter.ToLower())).ToList();
             }
+            listaItens = listaItens.OrderByDescending(x => x.DateRegister).ToList();
+            listaItens = listaItens.OrderByDescending(x => x.Favorite).ToList();
+
+            foreach (var item in listaItens)
+            {
+                if (item.Favorite)
+                {
+                    item.imageName = "ic_star.png";
+                }
+                else
+                {
+                    item.imageName = "ic_star_border.png";
+                }
+            }
+
             pageLinksList.ItemsSource = listaItens;
         }
 
@@ -88,6 +104,24 @@ namespace App.Views
 
             GetLinksByFilter("");
 
+        }
+
+        private async void FavoriteUnfavorite(object sender, EventArgs e)
+        {
+            var link = (Models.LinksModel)((ImageButton)sender).CommandParameter;
+
+            if (!link.Favorite)
+            {
+                link.Favorite = true;
+                await App.Database.SaveLinkAsync(link);
+            }
+            else
+            {
+                link.Favorite = false;
+                await App.Database.SaveLinkAsync(link);
+            }
+
+            GetLinksByFilter("");
         }
     }
 }
