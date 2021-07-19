@@ -10,23 +10,20 @@ using Xamarin.Forms.Xaml;
 namespace App.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class AddLink : ContentPage
+    public partial class Link : ContentPage
     {
         public Models.LinksModel link { get; set; }
-        public AddLink()
+        public Link()
         {
             InitializeComponent();
 
             BindingContext = new Models.LinksModel();
         }
 
-        public AddLink(Models.LinksModel linkToEdit)
+        public Link(Models.LinksModel linkToEdit)
         {
             InitializeComponent();
-            link = linkToEdit;
-            entryTitle.Text = link.Title;
-            entryDescription.Text = link.Description; 
-            BindingContext = new Models.LinksModel();
+            BindingContext = linkToEdit; 
         }
 
         private async void CreateNewLink(object sender, EventArgs e)

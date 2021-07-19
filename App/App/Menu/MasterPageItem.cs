@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace App_RecepcaoVeiculo_Tracker.Menu
+namespace App.Menu
 {
     public class MasterPageItem
     {

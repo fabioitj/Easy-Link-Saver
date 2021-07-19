@@ -17,17 +17,16 @@ namespace App.Droid.Class
         }
         protected override void OnElementChanged(ElementChangedEventArgs<View> e)
         {
-            int heightPixels = 0;
-
             base.OnElementChanged(e);
             if (e.OldElement == null)
             {
                 var adView = new AdView(Context);
+                int heightPixels;
                 switch ((Element as AdBanner).Size)
                 {
                     case AdBanner.Sizes.Standardbanner:
                         adView.AdSize = AdSize.Banner;
-                        heightPixels =  AdSize.Banner.GetHeightInPixels(Context);
+                        heightPixels = AdSize.Banner.GetHeightInPixels(Context);
                         break;
                     case AdBanner.Sizes.LargeBanner:
                         adView.AdSize = AdSize.LargeBanner;

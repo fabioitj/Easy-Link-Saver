@@ -1,10 +1,6 @@
-﻿using App_RecepcaoVeiculo_Tracker.Menu;
+﻿using App.Menu;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace App
@@ -13,7 +9,7 @@ namespace App
     {
         public List<MasterPageItem> menuList { get; set; }
         public MainPage()
-         {
+        {
             InitializeComponent();
 
             CreateMenu();
@@ -33,10 +29,11 @@ namespace App
         public async void CreateMenu()
         {
 
-            menuList = new List<MasterPageItem>();
-
-            menuList.Add(new MasterPageItem() { Title = "Links", Icon = "ic_globe.png", TargetType = typeof(Views.Inicio) });
-            menuList.Add(new MasterPageItem() { Title = "About", Icon = "ic_info_outline.png", TargetType = typeof(Views.About) });
+            menuList = new List<MasterPageItem>
+            {
+                new MasterPageItem() { Title = "Links", Icon = "ic_globe.png", TargetType = typeof(Views.Inicio) },
+                new MasterPageItem() { Title = "About", Icon = "ic_info_outline.png", TargetType = typeof(Views.About) }
+            };
 
             Detail = new NavigationPage((Page)Activator.CreateInstance(typeof(Views.Inicio)));
 

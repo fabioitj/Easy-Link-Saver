@@ -10,13 +10,25 @@ namespace App.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inicio : ContentPage
     {
-        public List<Models.LinksModel> linkList { get; set; }
+        public List<Models.LinksModel> LinkList { get; set; }
         public bool Selected { get; set; }
         public Inicio()
         {
             InitializeComponent();
             Title = "Links";
             searchBar.TextChanged += OnTextChanged;
+
+            RefreshListView();
+
+        }
+
+        public void RefreshListView()
+        {
+            pageLinksList.RefreshCommand = new Command(() =>
+            {
+                GetLinksByFilter("");    
+                pageLinksList.IsRefreshing = false;
+            });
         }
 
         protected override void OnAppearing()
@@ -43,7 +55,7 @@ namespace App.Views
 
         private void AddNewLink(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new AddLink());
+            Navigation.PushAsync(new Link());
         }
         private async void TapJoinLink(object sender, ItemTappedEventArgs e)
         {
@@ -61,15 +73,20 @@ namespace App.Views
 
             string action = await DisplayActionSheet("Options: ", "Cancel", null, "Edit", "Delete");
 
-            if(action == "Edit")
+            if (action == "Edit")
             {
-                await Navigation.PushAsync(new AddLink(link));
+                await Navigation.PushAsync(new Link(link));
             }
             else if (action == "Delete")
             {
-                await App.Database.DeleteLinkAsync(link);
-                await DisplayAlert("Success", "Register deleted.", "Ok");
+                if (await DisplayAlert("Confirmation", "Do you really want to delete this item?", "Yes", "No"))
+                {
+                    await App.Database.DeleteLinkAsync(link);
+                    await DisplayAlert("Success", "Register deleted.", "Ok");
+                }
             }
+
+            GetLinksByFilter("");
 
         }
     }
