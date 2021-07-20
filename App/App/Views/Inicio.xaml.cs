@@ -87,7 +87,7 @@ namespace App.Views
         {
             var link = (Models.LinksModel)((ImageButton)sender).CommandParameter;
 
-            string action = await DisplayActionSheet("Options: ", "Cancel", null, "Edit", "Delete");
+            string action = await DisplayActionSheet("Options: ", "Cancel", null, "Edit", "Delete", "Copy", "Share");
 
             if (action == "Edit")
             {
@@ -101,7 +101,22 @@ namespace App.Views
                     await DisplayAlert("Success", "Register deleted.", "Ok");
                 }
             }
+            else if (action == "Copy")
+            {
+                await Clipboard.SetTextAsync(link.Description.ToString());
+                
+            }
+            else if (action == "Share")
+            {
+                string message = "Come and look this site with me: \n\n" + link.Description.ToString();
+                await Share.RequestAsync(new ShareTextRequest
+                {
+                    Text = message,
+                    Title = link.Title.ToString()
+                });
 
+            }
+            
             GetLinksByFilter("");
 
         }
