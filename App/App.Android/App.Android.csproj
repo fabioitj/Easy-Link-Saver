@@ -75,11 +75,12 @@
       <Version>5.0.0.2012</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.GooglePlayServices.Ads">
-      <Version>120.2.0</Version>
+      <Version>119.8.0</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\AdBanner_Droid.cs" />
+    <Compile Include="Class\AdInterstitial_Droid.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

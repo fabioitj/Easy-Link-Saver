@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using App.Class;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -28,6 +28,8 @@ namespace App.Views
 
         private async void CreateNewLink(object sender, EventArgs e)
         {
+            DependencyService.Get<IAdInterstitial>().ShowAd();
+
             link = (Models.LinksModel)BindingContext;
             link.DateRegister = DateTime.UtcNow;
             if (!string.IsNullOrWhiteSpace(link.Title) && !string.IsNullOrWhiteSpace(link.Description))
